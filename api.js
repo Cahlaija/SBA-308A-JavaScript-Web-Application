@@ -1,9 +1,10 @@
-// api.js
+
+// Handles all communication with The Dog API
 
 const BASE_URL = "https://api.thedogapi.com/v1";
 
-// Replace this with your own API key from The Dog API
-const API_KEY = "YOUR_API_KEY_HERE";
+const API_KEY = "live_JvkNEu0MHG8YAk8V1JOSV7Wg2Jz8klQagvDTS1x2T6WRQxwG3Ek92qNVeDZQYjFw";
+
 
 // Get all dog breeds
 export async function getBreeds() {
@@ -19,6 +20,7 @@ export async function getBreeds() {
 
     return await response.json();
 }
+
 
 // Search dog images by breed
 export async function searchDogsByBreed(breedId) {
@@ -38,7 +40,8 @@ export async function searchDogsByBreed(breedId) {
     return await response.json();
 }
 
-// Add a dog image to favorites
+
+// Add dog image to favorites
 export async function favoriteDog(imageId) {
     const response = await fetch(`${BASE_URL}/favorites`, {
         method: "POST",
@@ -52,7 +55,7 @@ export async function favoriteDog(imageId) {
     });
 
     if (!response.ok) {
-        throw new Error("Failed to add favorite.");
+        throw new Error("Failed to add dog to favorites.");
     }
 
     return await response.json();
